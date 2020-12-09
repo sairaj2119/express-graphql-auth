@@ -1,6 +1,6 @@
 import 'reflect-metadata';
 import { createConnection } from 'typeorm';
-import express from 'express';
+import express, { Request, Response } from 'express';
 import { ApolloServer } from 'apollo-server-express';
 
 // import { User } from './entity/User';
@@ -19,6 +19,7 @@ import loginController from './controllers/loginController';
   const apolloServer = new ApolloServer({
     typeDefs,
     resolvers,
+    context: (req: Request, res: Response) => ({ req, res }),
   });
   apolloServer.applyMiddleware({ app });
   app.listen(4000, () => {

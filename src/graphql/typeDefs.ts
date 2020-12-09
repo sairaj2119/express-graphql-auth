@@ -8,7 +8,7 @@ export const typeDefs = gql`
     hello: String
   }
   type Mutation {
-    register(username: String, email: String, password: String): JwtToken!
-    login(email: String, password: String): String
+    register(username: String, email: String, password: String): JwtToken
+    login(email: String, password: String): JwtToken
   }
 `;
